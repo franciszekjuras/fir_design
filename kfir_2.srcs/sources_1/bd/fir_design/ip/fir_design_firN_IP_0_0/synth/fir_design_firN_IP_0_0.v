@@ -48,7 +48,7 @@
 
 
 // IP VLNV: fj:user:firN_IP:1
-// IP Revision: 22
+// IP Revision: 25
 
 (* X_CORE_INFO = "firIP_v1_0,Vivado 2017.1" *)
 (* CHECK_LICENSE_TYPE = "fir_design_firN_IP_0_0,firIP_v1_0,{}" *)

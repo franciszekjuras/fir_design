@@ -96,13 +96,17 @@
     localparam ADDR_LSB = (C_S_AXI_DATA_WIDTH/32) + 1;
 	// Addresses' bases in 32/64 bit addressing
 	localparam FIR_OFFSET_COEFS = 8;
-	localparam PROG_NAME = "FIRN";
-	localparam PROG_VER = "0v1";
+	localparam FIR_OFFSET_SAMPLES = 128;
+	//reverse order xD
+	localparam PROG_NAME = "NRIF";
+	localparam PROG_VER = "2b0";
 
 	//Switches:
 	localparam SWITCH_CON_EST = 0;
 	localparam SWITCH_FIR_EN = 1;
 	localparam SWITCH_FIR_UPDATE = 2;
+	//Debug switches
+	localparam SWITCH_FIR_TRIGGER = 16;
 
 	integer idx;
 
@@ -135,7 +139,7 @@
 	// Registers connected to AXI
     //read-only
 /*0*/    reg [C_S_AXI_DATA_WIDTH-1 : 0] info_1;
-/*1*/    reg [C_S_AXI_DATA_WIDTH-1 : 0] info_2;
+/*1*/    reg [C_S_AXI_DATA_WIDTH-1 : 0] info_2; //TODO: add extra info,
 /*2*/    reg [C_S_AXI_DATA_WIDTH-1 : 0] coefs_max_nr;
 /*3*/    //reg [C_S_AXI_DATA_WIDTH-1 : 0] unused;
     //write|read
@@ -148,6 +152,15 @@
 
 
 	reg signed [FIR_COEF_WIDTH-1 : 0] coefs [FIR_DSP_NR-1 : 0];
+	reg signed [FIR_COEF_WIDTH-1 : 0] coefs_FC [FIR_DSP_NR-1 : 0];
+	always @(posedge fir_clk) begin
+    	for(idx=0; idx < FIR_DSP_NR; idx=idx+1)begin
+			coefs_FC[idx] <= coefs[idx];
+		end
+	end
+
+	reg signed [FIR_DATA_WIDTH-1 : 0] samplesF [FIR_DSP_NR-1 : 0];
+	reg signed [FIR_DATA_WIDTH-1 : 0] samples [FIR_DSP_NR-1 : 0];
 
 	// Implement axi_awready generation
 	// axi_awready is asserted for one S_AXI_ACLK clock cycle when both
@@ -388,10 +401,15 @@
 		endcase
 
 		for(idx = 0; idx < FIR_DSP_NR; idx = idx + 1) begin
-				if(idx + FIR_OFFSET_COEFS == axi_araddr) begin
-					reg_data_out = coefs[idx]; //WARN:sign bit might not be shifted properly
-				end
-		end	      
+			if(idx + FIR_OFFSET_COEFS == axi_araddr) begin
+				reg_data_out = coefs[idx]; //WARN:sign bit might not be shifted properly
+			end
+		end	   
+		for(idx = 0; idx < FIR_DSP_NR; idx = idx + 1) begin
+			if(idx + FIR_OFFSET_SAMPLES == axi_araddr) begin
+				reg_data_out = samples[idx]; //WARN:sign bit might not be shifted properly
+			end
+		end	   
 	end
 
 	//-----------------------------------------------------//
@@ -421,6 +439,8 @@
 
 	//Combinational
 	assign leds_out[7:0] = switches[7:0];
+	wire trigger;
+	assign trigger = switches[SWITCH_FIR_TRIGGER];
 	/////////////
 
 	localparam SUM_WIDTH = FIR_DATA_WIDTH + FIR_COEF_MAG; /*at the end, sum is shortened by COEFMAG to XW length,
@@ -435,13 +455,15 @@
     always @(posedge fir_clk) begin
     	//TODO: set proper fir_en
     	if(switches[SWITCH_FIR_EN] == 1'b0) begin
-    		fir_out <= 0;
+    		fir_out <= fir_in;
     	end else begin
     		fir_out[FIR_DATA_WIDTH-1:0] <= dsp_con_sum[FIR_DSP_NR][SUM_WIDTH-1: SUM_WIDTH - FIR_DATA_WIDTH]; 
     		//output shift by coefficients' magnitude
     		//same as [FIR_COEF_MAG + FIR_DATA_WIDTH - 1 : FIR_COEF_MAG] 
     	end
     end
+
+
 
     genvar k; 
     generate
@@ -455,7 +477,7 @@
     		.reset(1'b0), //TODO: set proper reset
     		.inX(dsp_con_x[k]),
     		.outX(dsp_con_x[k+1]),
-    		.inCoef(coefs[k]),
+    		.inCoef(coefs_FC[k]),
     		.acc(dsp_con_sum[k]),
     		.out(dsp_con_sum[k+1])//TODO: add fir_en
     		);
@@ -463,14 +485,69 @@
     endgenerate
 
     ////////////////////
+    //Sampling
+    reg sample_en, triggerdA;
+    wire triggerdF; //fir_clock domain
+    wire sample_busy, sample_busy_fall;
+    reg [2:0] sample_busy_reg; //one more delay for less strained constraints
+    always @( posedge S_AXI_ACLK ) begin
+    	sample_busy_reg <= {sample_busy_reg[2],sample_busy_reg[1], sample_busy_reg[0], sample_busy};
+    end
+    assign sample_busy_fall = (sample_busy_reg[2]==1'b1 && sample_busy_reg[3]==1'b0);//
+
+    //trigger from PS
+    always @( posedge S_AXI_ACLK ) begin
+    	if ( S_AXI_ARESETN == 1'b0 ) begin
+    		sample_en <= 0;
+	    end 
+	    else begin
+	    	if(!trigger && !sample_en) begin
+	    		sample_en <= 1'b1;
+	    	end
+	    	else if(trigger && sample_en && !triggerdA) begin
+	    		sample_en <= 1'b0;
+	    		triggerdA <= 1'b1;
+	    	end
+	    	if(triggerdA) begin
+	    		triggerdA <= 1'b0;
+	    	end
+	    end
+    end
+
+    //cross to fir_clock
+    flag_cross_domain trig_cross_inst(
+    .CA(S_AXI_ACLK),
+    .FA(triggerdA),
+    .CB(fir_clk),
+    .FB(triggerdF),
+    .BusyA(sample_busy)
+    );
+    //samples are freezed at trigger
+    always @(posedge fir_clk) begin
+    	if(triggerdF) begin
+	    	for(idx=0; idx < FIR_DSP_NR; idx=idx+1)begin
+				samplesF[idx] <= dsp_con_x[idx];
+			end
+		end
+    end
+
+    //back to axi clock
+    //freezed samples are crossed beetween domains
+    always @(posedge S_AXI_ACLK) begin
+    	if(sample_busy_fall) begin
+    		for(idx=0; idx < FIR_DSP_NR; idx=idx+1)begin
+			samples[idx] <= samplesF[idx]; //DOMAIN CROSS
+			end
+    	end
+    end
+
+    /////////////////////
 
     always @(*) begin
     	coefs_max_nr = FIR_DSP_NR;
     	info_1 = PROG_NAME;
-    	info_2 = 0; //TODO: check decoding, change to PROG_VER, remember about stop char
+    	info_2 = PROG_VER; 
     end
-
-
 	// User logic ends
 
 	endmodule

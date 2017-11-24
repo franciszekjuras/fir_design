@@ -169,6 +169,9 @@ proc create_root_design { parentCell } {
 
   # Create instance: firN_IP_0, and set properties
   set firN_IP_0 [ create_bd_cell -type ip -vlnv fj:user:firN_IP:1 firN_IP_0 ]
+  set_property -dict [ list \
+CONFIG.FIR_DSP_NR {80} \
+ ] $firN_IP_0
 
   # Create instance: processing_system7_0, and set properties
   set processing_system7_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0 ]

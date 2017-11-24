@@ -36,54 +36,7 @@
    output logic          dac_rst_o    // DAC reset
     
     );
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    /*
-    ////////////////////////////////////////////////////////////////////////////////
-    // PLL (clock and reset)
-    ////////////////////////////////////////////////////////////////////////////////
-    
-    // diferential clock input
-    IBUFDS i_clk (.I (adc_clk_i[1]), .IB (adc_clk_i[0]), .O (adc_clk_in));  // differential clock input
-    
-    red_pitaya_pll pll (
-      // inputs
-      .clk         (adc_clk_in),  // clock
-      .rstn        (frstn[0]  ),  // reset - active low
-      // output clocks
-      .clk_adc     (pll_adc_clk   ),  // ADC clock
-      .clk_dac_1x  (pll_dac_clk_1x),  // DAC clock 125MHz
-      .clk_dac_2x  (pll_dac_clk_2x),  // DAC clock 250MHz
-      .clk_dac_2p  (pll_dac_clk_2p),  // DAC clock 250MHz -45DGR
-      .clk_ser     (pll_ser_clk   ),  // fast serial clock
-      .clk_pdm     (pll_pdm_clk   ),  // PDM clock
-      // status outputs
-      .pll_locked  (pll_locked)
-    );
-    
-    BUFG bufg_adc_clk    (.O (adc_clk   ), .I (pll_adc_clk   ));
-    BUFG bufg_dac_clk_1x (.O (dac_clk_1x), .I (pll_dac_clk_1x));
-    BUFG bufg_dac_clk_2x (.O (dac_clk_2x), .I (pll_dac_clk_2x));
-    BUFG bufg_dac_clk_2p (.O (dac_clk_2p), .I (pll_dac_clk_2p));
-    BUFG bufg_ser_clk    (.O (ser_clk   ), .I (pll_ser_clk   ));
-    BUFG bufg_pdm_clk    (.O (pdm_clk   ), .I (pll_pdm_clk   ));
-    
-    // TODO: reset is a mess
-    logic top_rst;
-    assign top_rst = ~frstn[0] | ~pll_locked;
-    
-    // ADC reset (active low)
-    always_ff @(posedge adc_clk, posedge top_rst)
-    if (top_rst) adc_rstn <= 1'b0;
-    else         adc_rstn <= ~top_rst;
-    
-    // DAC reset (active high)
-    always_ff @(posedge dac_clk_1x, posedge top_rst)
-    if (top_rst) dac_rst  <= 1'b1;
-    else         dac_rst  <= top_rst;
-    */
-    
+
     // PLL signals
     logic                 adc_clk_in;
     logic                 pll_adc_clk;
@@ -139,12 +92,10 @@ BUFG bufg_pwm_clk    (.O (pwm_clk   ), .I (pll_pwm_clk   ));
 
 // ADC reset (active low)
 always @(posedge adc_clk)
-//always @(posedge fclk[0])
 adc_rstn <=  frstn0 &  pll_locked;
 
 // DAC reset (active high)
 always @(posedge dac_clk_1x)
-//always @(posedge fclk[0])
 dac_rst  <= ~frstn0 | ~pll_locked;
 
 // stream bus type
@@ -172,21 +123,10 @@ begin
   dac_dat_b <= {dac_b[14-1], ~dac_b[14-2:0]};
 end
 
-// Sumation of ASG and PID signal perform saturation before sending to DAC 
-//assign dac_a_sum = FIR_OUT;
- //assign dac_b_sum = FIR_OUT;
- //assign dac_a_sum = FIR_OUT;
-
-
-// assign dac_a = FIR_OUT;
-// saturation
-//assign dac_b = (^dac_b_sum[15-1:15-2]) ? {dac_b_sum[15-1], {13{~dac_b_sum[15-1]}}} : dac_b_sum[14-1:0];
-//assign dac_a = (^dac_a_sum[15-1:15-2]) ? {dac_a_sum[15-1], {13{~dac_a_sum[15-1]}}} : dac_a_sum[14-1:0];
 
 logic [3:0] fclk;
 
 always @(posedge adc_clk)
-// always @(posedge fclk[0])
 begin
   adc_dat_raw[0] <= adc_dat_i[0][16-1:2];
   adc_dat_raw[1] <= adc_dat_i[1][16-1:2];
@@ -194,19 +134,6 @@ end
 
 assign adc_dat[0] = {adc_dat_raw[0][14-1], ~adc_dat_raw[0][14-2:0]};
 assign adc_dat[1] = {adc_dat_raw[1][14-1], ~adc_dat_raw[1][14-2:0]};
-
-logic [1:0][14-1 : 0] tmp;
-
-////////////////////////////////////////////////////////////
-always @ (posedge adc_clk) begin
-
-// dac_a <= adc_dat[0];
-dac_b <= adc_dat[1];
-
-end
-////////////////////////////////////////////////////////////
-
-
 
 fir_design_wrapper i_sys(
     .DDR_addr(DDR_addr),

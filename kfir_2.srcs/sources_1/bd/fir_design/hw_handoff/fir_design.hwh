@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Nov  3 13:20:00 2017" VIVADOVERSION="2017.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Nov 16 12:37:29 2017" VIVADOVERSION="2017.1">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z010" NAME="fir_design" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -35,14 +35,14 @@
         <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_RESET0_N"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="7" NAME="leds_out" RIGHT="0" SIGIS="data" SIGNAME="firN_IP_0_leds_out">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="firN_IP_0" PORT="leds_out"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT DIR="O" LEFT="13" NAME="dac_data" RIGHT="0" SIGIS="data" SIGNAME="firN_IP_0_fir_out">
       <CONNECTIONS>
         <CONNECTION INSTANCE="firN_IP_0" PORT="fir_out"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="7" NAME="leds_out" RIGHT="0" SIGIS="data" SIGNAME="firN_IP_0_leds_out">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="firN_IP_0" PORT="leds_out"/>
       </CONNECTIONS>
     </PORT>
     <PORT CLKFREQUENCY="100000000" DIR="I" NAME="adc_clk" SIGIS="clk" SIGNAME="External_Ports_adc_clk">

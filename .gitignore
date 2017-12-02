@@ -1,4 +1,9 @@
 kfir_2.*/
 !kfir_2.srcs/
+!kfir_2.runs/
+kfir_2.runs/*
+!kfir_2.runs/impl_1/
+kfir_2.runs/impl_1/*
+!kfir_2.runs/impl_1/top.bit
 *.log
 *~

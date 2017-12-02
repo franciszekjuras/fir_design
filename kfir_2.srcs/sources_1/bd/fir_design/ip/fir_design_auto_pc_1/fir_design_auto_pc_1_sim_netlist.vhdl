@@ -1,11 +1,11 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2017.1 (lin64) Build 1846317 Fri Apr 14 18:54:47 MDT 2017
--- Date        : Mon Oct 23 22:45:56 2017
--- Host        : franciszek-ThinkPad-E450 running 64-bit Ubuntu 14.04.5 LTS
+-- Tool Version: Vivado v.2017.3 (lin64) Build 2018833 Wed Oct  4 19:58:07 MDT 2017
+-- Date        : Thu Nov 30 19:44:51 2017
+-- Host        : franciszek-ThinkPad running 64-bit Ubuntu 16.04.3 LTS
 -- Command     : write_vhdl -force -mode funcsim -rename_top fir_design_auto_pc_1 -prefix
---               fir_design_auto_pc_1_ fir_design_auto_pc_0_sim_netlist.vhdl
--- Design      : fir_design_auto_pc_0
+--               fir_design_auto_pc_1_ fir_design_auto_pc_1_sim_netlist.vhdl
+-- Design      : fir_design_auto_pc_1
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
 -- Device      : xc7z010clg400-1
@@ -14,7 +14,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter is
+entity fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter is
   port (
     aclk : in STD_LOGIC;
     aresetn : in STD_LOGIC;
@@ -110,60 +110,60 @@ entity fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converte
     m_axi_rready : out STD_LOGIC
   );
   attribute C_AXI_ADDR_WIDTH : integer;
-  attribute C_AXI_ADDR_WIDTH of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is 32;
+  attribute C_AXI_ADDR_WIDTH of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is 32;
   attribute C_AXI_ARUSER_WIDTH : integer;
-  attribute C_AXI_ARUSER_WIDTH of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is 1;
+  attribute C_AXI_ARUSER_WIDTH of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is 1;
   attribute C_AXI_AWUSER_WIDTH : integer;
-  attribute C_AXI_AWUSER_WIDTH of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is 1;
+  attribute C_AXI_AWUSER_WIDTH of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is 1;
   attribute C_AXI_BUSER_WIDTH : integer;
-  attribute C_AXI_BUSER_WIDTH of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is 1;
+  attribute C_AXI_BUSER_WIDTH of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is 1;
   attribute C_AXI_DATA_WIDTH : integer;
-  attribute C_AXI_DATA_WIDTH of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is 32;
+  attribute C_AXI_DATA_WIDTH of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is 32;
   attribute C_AXI_ID_WIDTH : integer;
-  attribute C_AXI_ID_WIDTH of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is 12;
+  attribute C_AXI_ID_WIDTH of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is 12;
   attribute C_AXI_RUSER_WIDTH : integer;
-  attribute C_AXI_RUSER_WIDTH of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is 1;
+  attribute C_AXI_RUSER_WIDTH of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is 1;
   attribute C_AXI_SUPPORTS_READ : integer;
-  attribute C_AXI_SUPPORTS_READ of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is 1;
+  attribute C_AXI_SUPPORTS_READ of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is 1;
   attribute C_AXI_SUPPORTS_USER_SIGNALS : integer;
-  attribute C_AXI_SUPPORTS_USER_SIGNALS of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is 0;
+  attribute C_AXI_SUPPORTS_USER_SIGNALS of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is 0;
   attribute C_AXI_SUPPORTS_WRITE : integer;
-  attribute C_AXI_SUPPORTS_WRITE of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is 1;
+  attribute C_AXI_SUPPORTS_WRITE of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is 1;
   attribute C_AXI_WUSER_WIDTH : integer;
-  attribute C_AXI_WUSER_WIDTH of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is 1;
+  attribute C_AXI_WUSER_WIDTH of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is 1;
   attribute C_FAMILY : string;
-  attribute C_FAMILY of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is "zynq";
+  attribute C_FAMILY of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is "zynq";
   attribute C_IGNORE_ID : integer;
-  attribute C_IGNORE_ID of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is 0;
+  attribute C_IGNORE_ID of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is 0;
   attribute C_M_AXI_PROTOCOL : integer;
-  attribute C_M_AXI_PROTOCOL of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is 0;
+  attribute C_M_AXI_PROTOCOL of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is 0;
   attribute C_S_AXI_PROTOCOL : integer;
-  attribute C_S_AXI_PROTOCOL of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is 1;
+  attribute C_S_AXI_PROTOCOL of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is 1;
   attribute C_TRANSLATION_MODE : integer;
-  attribute C_TRANSLATION_MODE of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is 2;
+  attribute C_TRANSLATION_MODE of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is 2;
   attribute DowngradeIPIdentifiedWarnings : string;
-  attribute DowngradeIPIdentifiedWarnings of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is "yes";
+  attribute DowngradeIPIdentifiedWarnings of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is "yes";
   attribute P_AXI3 : integer;
-  attribute P_AXI3 of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is 1;
+  attribute P_AXI3 of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is 1;
   attribute P_AXI4 : integer;
-  attribute P_AXI4 of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is 0;
+  attribute P_AXI4 of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is 0;
   attribute P_AXILITE : integer;
-  attribute P_AXILITE of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is 2;
+  attribute P_AXILITE of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is 2;
   attribute P_AXILITE_SIZE : string;
-  attribute P_AXILITE_SIZE of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is "3'b010";
+  attribute P_AXILITE_SIZE of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is "3'b010";
   attribute P_CONVERSION : integer;
-  attribute P_CONVERSION of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is 2;
+  attribute P_CONVERSION of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is 2;
   attribute P_DECERR : string;
-  attribute P_DECERR of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is "2'b11";
+  attribute P_DECERR of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is "2'b11";
   attribute P_INCR : string;
-  attribute P_INCR of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is "2'b01";
+  attribute P_INCR of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is "2'b01";
   attribute P_PROTECTION : integer;
-  attribute P_PROTECTION of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is 1;
+  attribute P_PROTECTION of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is 1;
   attribute P_SLVERR : string;
-  attribute P_SLVERR of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter : entity is "2'b10";
-end fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter;
+  attribute P_SLVERR of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter : entity is "2'b10";
+end fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter;
 
-architecture STRUCTURE of fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter is
+architecture STRUCTURE of fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter is
   signal \<const0>\ : STD_LOGIC;
   signal \^m_axi_arready\ : STD_LOGIC;
   signal \^m_axi_awready\ : STD_LOGIC;
@@ -414,11 +414,11 @@ entity fir_design_auto_pc_1 is
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of fir_design_auto_pc_1 : entity is true;
   attribute CHECK_LICENSE_TYPE : string;
-  attribute CHECK_LICENSE_TYPE of fir_design_auto_pc_1 : entity is "fir_design_auto_pc_0,axi_protocol_converter_v2_1_12_axi_protocol_converter,{}";
+  attribute CHECK_LICENSE_TYPE of fir_design_auto_pc_1 : entity is "fir_design_auto_pc_1,axi_protocol_converter_v2_1_14_axi_protocol_converter,{}";
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of fir_design_auto_pc_1 : entity is "yes";
   attribute X_CORE_INFO : string;
-  attribute X_CORE_INFO of fir_design_auto_pc_1 : entity is "axi_protocol_converter_v2_1_12_axi_protocol_converter,Vivado 2017.1";
+  attribute X_CORE_INFO of fir_design_auto_pc_1 : entity is "axi_protocol_converter_v2_1_14_axi_protocol_converter,Vivado 2017.3";
 end fir_design_auto_pc_1;
 
 architecture STRUCTURE of fir_design_auto_pc_1 is
@@ -479,8 +479,93 @@ architecture STRUCTURE of fir_design_auto_pc_1 is
   attribute P_PROTECTION of inst : label is 1;
   attribute P_SLVERR : string;
   attribute P_SLVERR of inst : label is "2'b10";
+  attribute X_INTERFACE_INFO : string;
+  attribute X_INTERFACE_INFO of aclk : signal is "xilinx.com:signal:clock:1.0 CLK CLK";
+  attribute X_INTERFACE_PARAMETER : string;
+  attribute X_INTERFACE_PARAMETER of aclk : signal is "XIL_INTERFACENAME CLK, FREQ_HZ 50000000, PHASE 0.000, CLK_DOMAIN fir_design_processing_system7_0_1_FCLK_CLK0, ASSOCIATED_BUSIF S_AXI:M_AXI, ASSOCIATED_RESET ARESETN";
+  attribute X_INTERFACE_INFO of aresetn : signal is "xilinx.com:signal:reset:1.0 RST RST";
+  attribute X_INTERFACE_PARAMETER of aresetn : signal is "XIL_INTERFACENAME RST, POLARITY ACTIVE_LOW, TYPE INTERCONNECT";
+  attribute X_INTERFACE_INFO of m_axi_arready : signal is "xilinx.com:interface:aximm:1.0 M_AXI ARREADY";
+  attribute X_INTERFACE_INFO of m_axi_arvalid : signal is "xilinx.com:interface:aximm:1.0 M_AXI ARVALID";
+  attribute X_INTERFACE_INFO of m_axi_awready : signal is "xilinx.com:interface:aximm:1.0 M_AXI AWREADY";
+  attribute X_INTERFACE_INFO of m_axi_awvalid : signal is "xilinx.com:interface:aximm:1.0 M_AXI AWVALID";
+  attribute X_INTERFACE_INFO of m_axi_bready : signal is "xilinx.com:interface:aximm:1.0 M_AXI BREADY";
+  attribute X_INTERFACE_INFO of m_axi_bvalid : signal is "xilinx.com:interface:aximm:1.0 M_AXI BVALID";
+  attribute X_INTERFACE_INFO of m_axi_rlast : signal is "xilinx.com:interface:aximm:1.0 M_AXI RLAST";
+  attribute X_INTERFACE_INFO of m_axi_rready : signal is "xilinx.com:interface:aximm:1.0 M_AXI RREADY";
+  attribute X_INTERFACE_PARAMETER of m_axi_rready : signal is "XIL_INTERFACENAME M_AXI, DATA_WIDTH 32, PROTOCOL AXI4, FREQ_HZ 50000000, ID_WIDTH 12, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 1, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 8, NUM_WRITE_OUTSTANDING 8, MAX_BURST_LENGTH 16, PHASE 0.000, CLK_DOMAIN fir_design_processing_system7_0_1_FCLK_CLK0, NUM_READ_THREADS 4, NUM_WRITE_THREADS 4, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0";
+  attribute X_INTERFACE_INFO of m_axi_rvalid : signal is "xilinx.com:interface:aximm:1.0 M_AXI RVALID";
+  attribute X_INTERFACE_INFO of m_axi_wlast : signal is "xilinx.com:interface:aximm:1.0 M_AXI WLAST";
+  attribute X_INTERFACE_INFO of m_axi_wready : signal is "xilinx.com:interface:aximm:1.0 M_AXI WREADY";
+  attribute X_INTERFACE_INFO of m_axi_wvalid : signal is "xilinx.com:interface:aximm:1.0 M_AXI WVALID";
+  attribute X_INTERFACE_INFO of s_axi_arready : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARREADY";
+  attribute X_INTERFACE_INFO of s_axi_arvalid : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARVALID";
+  attribute X_INTERFACE_INFO of s_axi_awready : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWREADY";
+  attribute X_INTERFACE_INFO of s_axi_awvalid : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWVALID";
+  attribute X_INTERFACE_INFO of s_axi_bready : signal is "xilinx.com:interface:aximm:1.0 S_AXI BREADY";
+  attribute X_INTERFACE_INFO of s_axi_bvalid : signal is "xilinx.com:interface:aximm:1.0 S_AXI BVALID";
+  attribute X_INTERFACE_INFO of s_axi_rlast : signal is "xilinx.com:interface:aximm:1.0 S_AXI RLAST";
+  attribute X_INTERFACE_INFO of s_axi_rready : signal is "xilinx.com:interface:aximm:1.0 S_AXI RREADY";
+  attribute X_INTERFACE_PARAMETER of s_axi_rready : signal is "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI3, FREQ_HZ 50000000, ID_WIDTH 12, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 8, NUM_WRITE_OUTSTANDING 8, MAX_BURST_LENGTH 16, PHASE 0.000, CLK_DOMAIN fir_design_processing_system7_0_1_FCLK_CLK0, NUM_READ_THREADS 4, NUM_WRITE_THREADS 4, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0";
+  attribute X_INTERFACE_INFO of s_axi_rvalid : signal is "xilinx.com:interface:aximm:1.0 S_AXI RVALID";
+  attribute X_INTERFACE_INFO of s_axi_wlast : signal is "xilinx.com:interface:aximm:1.0 S_AXI WLAST";
+  attribute X_INTERFACE_INFO of s_axi_wready : signal is "xilinx.com:interface:aximm:1.0 S_AXI WREADY";
+  attribute X_INTERFACE_INFO of s_axi_wvalid : signal is "xilinx.com:interface:aximm:1.0 S_AXI WVALID";
+  attribute X_INTERFACE_INFO of m_axi_araddr : signal is "xilinx.com:interface:aximm:1.0 M_AXI ARADDR";
+  attribute X_INTERFACE_INFO of m_axi_arburst : signal is "xilinx.com:interface:aximm:1.0 M_AXI ARBURST";
+  attribute X_INTERFACE_INFO of m_axi_arcache : signal is "xilinx.com:interface:aximm:1.0 M_AXI ARCACHE";
+  attribute X_INTERFACE_INFO of m_axi_arid : signal is "xilinx.com:interface:aximm:1.0 M_AXI ARID";
+  attribute X_INTERFACE_INFO of m_axi_arlen : signal is "xilinx.com:interface:aximm:1.0 M_AXI ARLEN";
+  attribute X_INTERFACE_INFO of m_axi_arlock : signal is "xilinx.com:interface:aximm:1.0 M_AXI ARLOCK";
+  attribute X_INTERFACE_INFO of m_axi_arprot : signal is "xilinx.com:interface:aximm:1.0 M_AXI ARPROT";
+  attribute X_INTERFACE_INFO of m_axi_arqos : signal is "xilinx.com:interface:aximm:1.0 M_AXI ARQOS";
+  attribute X_INTERFACE_INFO of m_axi_arregion : signal is "xilinx.com:interface:aximm:1.0 M_AXI ARREGION";
+  attribute X_INTERFACE_INFO of m_axi_arsize : signal is "xilinx.com:interface:aximm:1.0 M_AXI ARSIZE";
+  attribute X_INTERFACE_INFO of m_axi_awaddr : signal is "xilinx.com:interface:aximm:1.0 M_AXI AWADDR";
+  attribute X_INTERFACE_INFO of m_axi_awburst : signal is "xilinx.com:interface:aximm:1.0 M_AXI AWBURST";
+  attribute X_INTERFACE_INFO of m_axi_awcache : signal is "xilinx.com:interface:aximm:1.0 M_AXI AWCACHE";
+  attribute X_INTERFACE_INFO of m_axi_awid : signal is "xilinx.com:interface:aximm:1.0 M_AXI AWID";
+  attribute X_INTERFACE_INFO of m_axi_awlen : signal is "xilinx.com:interface:aximm:1.0 M_AXI AWLEN";
+  attribute X_INTERFACE_INFO of m_axi_awlock : signal is "xilinx.com:interface:aximm:1.0 M_AXI AWLOCK";
+  attribute X_INTERFACE_INFO of m_axi_awprot : signal is "xilinx.com:interface:aximm:1.0 M_AXI AWPROT";
+  attribute X_INTERFACE_INFO of m_axi_awqos : signal is "xilinx.com:interface:aximm:1.0 M_AXI AWQOS";
+  attribute X_INTERFACE_INFO of m_axi_awregion : signal is "xilinx.com:interface:aximm:1.0 M_AXI AWREGION";
+  attribute X_INTERFACE_INFO of m_axi_awsize : signal is "xilinx.com:interface:aximm:1.0 M_AXI AWSIZE";
+  attribute X_INTERFACE_INFO of m_axi_bid : signal is "xilinx.com:interface:aximm:1.0 M_AXI BID";
+  attribute X_INTERFACE_INFO of m_axi_bresp : signal is "xilinx.com:interface:aximm:1.0 M_AXI BRESP";
+  attribute X_INTERFACE_INFO of m_axi_rdata : signal is "xilinx.com:interface:aximm:1.0 M_AXI RDATA";
+  attribute X_INTERFACE_INFO of m_axi_rid : signal is "xilinx.com:interface:aximm:1.0 M_AXI RID";
+  attribute X_INTERFACE_INFO of m_axi_rresp : signal is "xilinx.com:interface:aximm:1.0 M_AXI RRESP";
+  attribute X_INTERFACE_INFO of m_axi_wdata : signal is "xilinx.com:interface:aximm:1.0 M_AXI WDATA";
+  attribute X_INTERFACE_INFO of m_axi_wstrb : signal is "xilinx.com:interface:aximm:1.0 M_AXI WSTRB";
+  attribute X_INTERFACE_INFO of s_axi_araddr : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARADDR";
+  attribute X_INTERFACE_INFO of s_axi_arburst : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARBURST";
+  attribute X_INTERFACE_INFO of s_axi_arcache : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARCACHE";
+  attribute X_INTERFACE_INFO of s_axi_arid : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARID";
+  attribute X_INTERFACE_INFO of s_axi_arlen : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARLEN";
+  attribute X_INTERFACE_INFO of s_axi_arlock : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARLOCK";
+  attribute X_INTERFACE_INFO of s_axi_arprot : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARPROT";
+  attribute X_INTERFACE_INFO of s_axi_arqos : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARQOS";
+  attribute X_INTERFACE_INFO of s_axi_arsize : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARSIZE";
+  attribute X_INTERFACE_INFO of s_axi_awaddr : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWADDR";
+  attribute X_INTERFACE_INFO of s_axi_awburst : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWBURST";
+  attribute X_INTERFACE_INFO of s_axi_awcache : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWCACHE";
+  attribute X_INTERFACE_INFO of s_axi_awid : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWID";
+  attribute X_INTERFACE_INFO of s_axi_awlen : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWLEN";
+  attribute X_INTERFACE_INFO of s_axi_awlock : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWLOCK";
+  attribute X_INTERFACE_INFO of s_axi_awprot : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWPROT";
+  attribute X_INTERFACE_INFO of s_axi_awqos : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWQOS";
+  attribute X_INTERFACE_INFO of s_axi_awsize : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWSIZE";
+  attribute X_INTERFACE_INFO of s_axi_bid : signal is "xilinx.com:interface:aximm:1.0 S_AXI BID";
+  attribute X_INTERFACE_INFO of s_axi_bresp : signal is "xilinx.com:interface:aximm:1.0 S_AXI BRESP";
+  attribute X_INTERFACE_INFO of s_axi_rdata : signal is "xilinx.com:interface:aximm:1.0 S_AXI RDATA";
+  attribute X_INTERFACE_INFO of s_axi_rid : signal is "xilinx.com:interface:aximm:1.0 S_AXI RID";
+  attribute X_INTERFACE_INFO of s_axi_rresp : signal is "xilinx.com:interface:aximm:1.0 S_AXI RRESP";
+  attribute X_INTERFACE_INFO of s_axi_wdata : signal is "xilinx.com:interface:aximm:1.0 S_AXI WDATA";
+  attribute X_INTERFACE_INFO of s_axi_wid : signal is "xilinx.com:interface:aximm:1.0 S_AXI WID";
+  attribute X_INTERFACE_INFO of s_axi_wstrb : signal is "xilinx.com:interface:aximm:1.0 S_AXI WSTRB";
 begin
-inst: entity work.fir_design_auto_pc_1_axi_protocol_converter_v2_1_12_axi_protocol_converter
+inst: entity work.fir_design_auto_pc_1_axi_protocol_converter_v2_1_14_axi_protocol_converter
      port map (
       aclk => aclk,
       aresetn => aresetn,

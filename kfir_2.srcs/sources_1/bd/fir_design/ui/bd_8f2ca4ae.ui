@@ -1,5 +1,6 @@
 {
-   guistr: "# # String gsaved with Nlview 6.6.8  2016-12-21 bk=1.3817 VDI=40 GEI=35 GUI=JA:1.6
+   ExpandedHierarchyInLayout: "",
+   guistr: "# # String gsaved with Nlview 6.6.11  2017-06-12 bk=1.3860 VDI=40 GEI=35 GUI=JA:1.6
 #  -string -flagsOSRD
 preplace port DDR -pg 1 -y 50 -defaultsOSRD
 preplace port FCLK_RESET0_N -pg 1 -y 130 -defaultsOSRD
@@ -15,16 +16,16 @@ preplace inst axi_interconnect_0 -pg 1 -lvl 2 -y 330 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 3 -y 90 -defaultsOSRD
 preplace netloc processing_system7_0_DDR 1 3 1 NJ
 preplace netloc processing_system7_0_M_AXI_GP0 1 1 3 410 190 NJ 190 1150
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 4 10 160 NJ 160 750J 180 1160
-preplace netloc adc_data_1 1 0 3 0J 470 NJ 470 720
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 4 10 160 NJ 160 740J 180 1160
+preplace netloc adc_data_1 1 0 3 0J 470 NJ 470 710
 preplace netloc adc_clk_1 1 0 3 NJ 490 NJ 490 N
 preplace netloc rst_ps7_0_50M_interconnect_aresetn 1 1 1 390
 preplace netloc firN_IP_0_leds_out 1 3 1 N
 preplace netloc processing_system7_0_FIXED_IO 1 3 1 NJ
 preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 1 2 410 550 N
-preplace netloc axi_interconnect_0_M00_AXI 1 2 1 730
+preplace netloc axi_interconnect_0_M00_AXI 1 2 1 720
 preplace netloc firN_IP_0_fir_out 1 3 1 N
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 4 20 390 400 180 740 200 1170
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 4 20 390 400 180 730 200 1170
 levelinfo -pg 1 -20 210 570 950 1190 -top 0 -bot 690
 ",
 }

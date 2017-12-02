@@ -1,8 +1,8 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2017.1 (lin64) Build 1846317 Fri Apr 14 18:54:47 MDT 2017
--- Date        : Thu Nov 16 12:39:17 2017
--- Host        : franciszek-ThinkPad-E450 running 64-bit Ubuntu 14.04.5 LTS
+-- Tool Version: Vivado v.2017.3 (lin64) Build 2018833 Wed Oct  4 19:58:07 MDT 2017
+-- Date        : Sat Dec  2 17:52:39 2017
+-- Host        : franciszek-ThinkPad running 64-bit Ubuntu 16.04.3 LTS
 -- Command     : write_vhdl -force -mode synth_stub
 --               /home/franciszek/Documents/fpga/firN/kfir_2.srcs/sources_1/bd/fir_design/ip/fir_design_firN_IP_0_0/fir_design_firN_IP_0_0_stub.vhdl
 -- Design      : fir_design_firN_IP_0_0
@@ -49,6 +49,6 @@ attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
 attribute black_box_pad_pin of stub : architecture is "fir_clk,fir_in[13:0],fir_out[13:0],leds_out[7:0],s00_axi_awaddr[15:0],s00_axi_awprot[2:0],s00_axi_awvalid,s00_axi_awready,s00_axi_wdata[31:0],s00_axi_wstrb[3:0],s00_axi_wvalid,s00_axi_wready,s00_axi_bresp[1:0],s00_axi_bvalid,s00_axi_bready,s00_axi_araddr[15:0],s00_axi_arprot[2:0],s00_axi_arvalid,s00_axi_arready,s00_axi_rdata[31:0],s00_axi_rresp[1:0],s00_axi_rvalid,s00_axi_rready,s00_axi_aclk,s00_axi_aresetn";
 attribute X_CORE_INFO : string;
-attribute X_CORE_INFO of stub : architecture is "firIP_v1_0,Vivado 2017.1";
+attribute X_CORE_INFO of stub : architecture is "firIP_v1_0,Vivado 2017.3";
 begin
 end;

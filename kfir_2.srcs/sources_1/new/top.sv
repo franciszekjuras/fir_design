@@ -162,8 +162,7 @@ fir_design_wrapper i_sys(
     .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
     .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
     .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
-   // .mul_clk_i(ser_clk), // fast clock for multiplication
-    .adc_clk(adc_clk), 
+    .fir_clk(ser_clk), 
     .leds_out(LED_OUT),
     .adc_data(adc_dat[0]),
     .dac_data(dac_a)

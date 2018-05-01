@@ -38,13 +38,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="30"/>
-    <Option Name="WTModelSimExportSim" Val="30"/>
-    <Option Name="WTQuestaExportSim" Val="30"/>
-    <Option Name="WTIesExportSim" Val="30"/>
-    <Option Name="WTVcsExportSim" Val="30"/>
-    <Option Name="WTRivieraExportSim" Val="30"/>
-    <Option Name="WTActivehdlExportSim" Val="30"/>
+    <Option Name="WTXSimExportSim" Val="66"/>
+    <Option Name="WTModelSimExportSim" Val="66"/>
+    <Option Name="WTQuestaExportSim" Val="66"/>
+    <Option Name="WTIesExportSim" Val="66"/>
+    <Option Name="WTVcsExportSim" Val="66"/>
+    <Option Name="WTRivieraExportSim" Val="66"/>
+    <Option Name="WTActivehdlExportSim" Val="66"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -61,17 +61,17 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="fir_design.bd" FileRelPathName="ip/fir_design_processing_system7_0_1/fir_design_processing_system7_0_1.xci">
-          <Proxy FileSetName="fir_design_processing_system7_0_1"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="fir_design.bd" FileRelPathName="ip/fir_design_rst_ps7_0_50M_1/fir_design_rst_ps7_0_50M_1.xci">
-          <Proxy FileSetName="fir_design_rst_ps7_0_50M_1"/>
+        <CompFileExtendedInfo CompFileName="fir_design.bd" FileRelPathName="ip/fir_design_xbar_0/fir_design_xbar_0.xci">
+          <Proxy FileSetName="fir_design_xbar_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="fir_design.bd" FileRelPathName="ip/fir_design_firN_IP_0_0/fir_design_firN_IP_0_0.xci">
           <Proxy FileSetName="fir_design_firN_IP_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="fir_design.bd" FileRelPathName="ip/fir_design_xbar_0/fir_design_xbar_0.xci">
-          <Proxy FileSetName="fir_design_xbar_0"/>
+        <CompFileExtendedInfo CompFileName="fir_design.bd" FileRelPathName="ip/fir_design_rst_ps7_0_50M_1/fir_design_rst_ps7_0_50M_1.xci">
+          <Proxy FileSetName="fir_design_rst_ps7_0_50M_1"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="fir_design.bd" FileRelPathName="ip/fir_design_processing_system7_0_1/fir_design_processing_system7_0_1.xci">
+          <Proxy FileSetName="fir_design_processing_system7_0_1"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/fir_design/hdl/fir_design_wrapper.v">

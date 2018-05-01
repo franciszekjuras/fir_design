@@ -161,9 +161,9 @@ proc create_root_design { parentCell } {
   # Create ports
   set FCLK_CLK0 [ create_bd_port -dir O -type clk FCLK_CLK0 ]
   set FCLK_RESET0_N [ create_bd_port -dir O -type rst FCLK_RESET0_N ]
-  set adc_clk [ create_bd_port -dir I -type clk adc_clk ]
   set adc_data [ create_bd_port -dir I -from 13 -to 0 -type data adc_data ]
   set dac_data [ create_bd_port -dir O -from 13 -to 0 -type data dac_data ]
+  set fir_clk [ create_bd_port -dir I -type clk fir_clk ]
   set leds_out [ create_bd_port -dir O -from 7 -to 0 -type data leds_out ]
 
   # Create instance: axi_interconnect_0, and set properties
@@ -175,7 +175,8 @@ proc create_root_design { parentCell } {
   # Create instance: firN_IP_0, and set properties
   set firN_IP_0 [ create_bd_cell -type ip -vlnv fj:user:firN_IP:1 firN_IP_0 ]
   set_property -dict [ list \
-   CONFIG.FIR_DSP_NR {80} \
+   CONFIG.FIR_COEF_MAG {16} \
+   CONFIG.FIR_DSP_NR {10} \
  ] $firN_IP_0
 
   # Create instance: processing_system7_0, and set properties
@@ -755,7 +756,7 @@ proc create_root_design { parentCell } {
   connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins axi_interconnect_0/S00_AXI] [get_bd_intf_pins processing_system7_0/M_AXI_GP0]
 
   # Create port connections
-  connect_bd_net -net adc_clk_1 [get_bd_ports adc_clk] [get_bd_pins firN_IP_0/fir_clk]
+  connect_bd_net -net adc_clk_1 [get_bd_ports fir_clk] [get_bd_pins firN_IP_0/fir_clk]
   connect_bd_net -net adc_data_1 [get_bd_ports adc_data] [get_bd_pins firN_IP_0/fir_in]
   connect_bd_net -net firN_IP_0_fir_out [get_bd_ports dac_data] [get_bd_pins firN_IP_0/fir_out]
   connect_bd_net -net firN_IP_0_leds_out [get_bd_ports leds_out] [get_bd_pins firN_IP_0/leds_out]

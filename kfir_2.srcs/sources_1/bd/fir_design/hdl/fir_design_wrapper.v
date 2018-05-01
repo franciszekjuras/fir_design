@@ -1,8 +1,8 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.3 (lin64) Build 2018833 Wed Oct  4 19:58:07 MDT 2017
-//Date        : Sat Dec  2 17:50:05 2017
-//Host        : franciszek-ThinkPad running 64-bit Ubuntu 16.04.3 LTS
+//Date        : Fri Apr 27 12:33:15 2018
+//Host        : fPad running 64-bit Ubuntu 16.04.4 LTS
 //Command     : generate_target fir_design_wrapper.bd
 //Design      : fir_design_wrapper
 //Purpose     : IP block netlist
@@ -33,9 +33,9 @@ module fir_design_wrapper
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
-    adc_clk,
     adc_data,
     dac_data,
+    fir_clk,
     leds_out);
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
@@ -60,9 +60,9 @@ module fir_design_wrapper
   inout FIXED_IO_ps_clk;
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
-  input adc_clk;
   input [13:0]adc_data;
   output [13:0]dac_data;
+  input fir_clk;
   output [7:0]leds_out;
 
   wire [14:0]DDR_addr;
@@ -88,9 +88,9 @@ module fir_design_wrapper
   wire FIXED_IO_ps_clk;
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
-  wire adc_clk;
   wire [13:0]adc_data;
   wire [13:0]dac_data;
+  wire fir_clk;
   wire [7:0]leds_out;
 
   fir_design fir_design_i
@@ -117,8 +117,8 @@ module fir_design_wrapper
         .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
-        .adc_clk(adc_clk),
         .adc_data(adc_data),
         .dac_data(dac_data),
+        .fir_clk(fir_clk),
         .leds_out(leds_out));
 endmodule

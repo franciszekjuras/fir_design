@@ -13,34 +13,43 @@ module rp_pll (
   output wire pll_locked
 );
 
+localparam UNDERSAMPL = 2;
+localparam SERIALMULT = 1;
+
 wire clk_fb;
 
 PLLE2_ADV #(
-   .BANDWIDTH            ("OPTIMIZED"),
-   .COMPENSATION         ("ZHOLD"    ),
-   .DIVCLK_DIVIDE        ( 1         ),
-   .CLKFBOUT_MULT        ( 8         ),
-   .CLKFBOUT_PHASE       ( 0.000     ),
-   .CLKOUT0_DIVIDE       ( 8         ), // 8 bylo wczesniej
-   .CLKOUT0_PHASE        ( 0      ),
-   .CLKOUT0_DUTY_CYCLE   ( 0.5       ),
-   .CLKOUT1_DIVIDE       ( 8         ),
-   .CLKOUT1_PHASE        ( 0.000     ),
-   .CLKOUT1_DUTY_CYCLE   ( 0.5       ),
-   .CLKOUT2_DIVIDE       ( 4         ),
-   .CLKOUT2_PHASE        ( 0.000     ),
-   .CLKOUT2_DUTY_CYCLE   ( 0.5       ),
-   .CLKOUT3_DIVIDE       ( 4         ),
-   .CLKOUT3_PHASE        (-45.000    ),
-   .CLKOUT3_DUTY_CYCLE   ( 0.5       ),
-   .CLKOUT4_DIVIDE       ( 4         ),  // 4->250MHz, 2->500MHz
-   .CLKOUT4_PHASE        ( 0         ),
-   .CLKOUT4_DUTY_CYCLE   ( 0.5       ),
-   .CLKOUT5_DIVIDE       ( 4         ),
-   .CLKOUT5_PHASE        ( 0.000     ),
-   .CLKOUT5_DUTY_CYCLE   ( 0.5       ),
-   .CLKIN1_PERIOD        ( 8.000     ),
-   .REF_JITTER1          ( 0.010     )
+   .BANDWIDTH            ("OPTIMIZED"   ),
+   .COMPENSATION         ("ZHOLD"       ),
+   .DIVCLK_DIVIDE        ( 1            ),
+   .CLKFBOUT_MULT        ( 8            ),
+   .CLKFBOUT_PHASE       ( 0.000        ),
+   //copied ADC clock
+   .CLKOUT0_DIVIDE       ( 8            ), // 8 bylo wczesniej
+   .CLKOUT0_PHASE        ( 0            ),
+   .CLKOUT0_DUTY_CYCLE   ( 0.5          ),
+   //DAC clock 1x
+   .CLKOUT1_DIVIDE       ( 8*UNDERSAMPL ),
+   .CLKOUT1_PHASE        ( 0.000        ),
+   .CLKOUT1_DUTY_CYCLE   ( 0.5          ),
+   //DAC clock 2x
+   .CLKOUT2_DIVIDE       ( 4*UNDERSAMPL ),
+   .CLKOUT2_PHASE        ( 0.000        ),
+   .CLKOUT2_DUTY_CYCLE   ( 0.5          ),
+   //DAC clock 2x phase shifted
+   .CLKOUT3_DIVIDE       ( 4*UNDERSAMPL ),
+   .CLKOUT3_PHASE        (-45.000       ),
+   .CLKOUT3_DUTY_CYCLE   ( 0.5          ),
+   //serial clock for multiplication in DSP blocks
+   .CLKOUT4_DIVIDE       ( 8/SERIALMULT ),  // 8->125MHz 4->250MHz, 2->500MHz
+   .CLKOUT4_PHASE        ( 0            ),
+   .CLKOUT4_DUTY_CYCLE   ( 0.5          ),
+   //pdm clock - unused
+   .CLKOUT5_DIVIDE       ( 4            ),
+   .CLKOUT5_PHASE        ( 0.000        ),
+   .CLKOUT5_DUTY_CYCLE   ( 0.5          ),
+   .CLKIN1_PERIOD        ( 8.000        ),
+   .REF_JITTER1          ( 0.010        )
 ) pll (
    // Output clocks
    .CLKFBOUT     (clk_fb    ),

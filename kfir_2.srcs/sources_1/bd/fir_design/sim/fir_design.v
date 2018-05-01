@@ -1,8 +1,8 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.3 (lin64) Build 2018833 Wed Oct  4 19:58:07 MDT 2017
-//Date        : Sat Dec  2 17:50:04 2017
-//Host        : franciszek-ThinkPad running 64-bit Ubuntu 16.04.3 LTS
+//Date        : Fri Apr 27 12:33:15 2018
+//Host        : fPad running 64-bit Ubuntu 16.04.4 LTS
 //Command     : generate_target fir_design.bd
 //Design      : fir_design
 //Purpose     : IP block netlist
@@ -34,9 +34,9 @@ module fir_design
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
-    adc_clk,
     adc_data,
     dac_data,
+    fir_clk,
     leds_out);
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR ADDR" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DDR, AXI_ARBITRATION_SCHEME TDM, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 11, CAS_WRITE_LATENCY 11, CS_ENABLED true, DATA_MASK_ENABLED true, DATA_WIDTH 8, MEMORY_TYPE COMPONENTS, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 1250" *) inout [14:0]DDR_addr;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR BA" *) inout [2:0]DDR_ba;
@@ -61,9 +61,9 @@ module fir_design
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_CLK" *) inout FIXED_IO_ps_clk;
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_PORB" *) inout FIXED_IO_ps_porb;
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_SRSTB" *) inout FIXED_IO_ps_srstb;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.ADC_CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.ADC_CLK, CLK_DOMAIN fir_design_adc_clk, FREQ_HZ 100000000, PHASE 0.000" *) input adc_clk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.ADC_DATA DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.ADC_DATA, LAYERED_METADATA undef" *) input [13:0]adc_data;
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.DAC_DATA DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.DAC_DATA, LAYERED_METADATA undef" *) output [13:0]dac_data;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.FIR_CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.FIR_CLK, CLK_DOMAIN fir_design_fir_clk, FREQ_HZ 100000000, PHASE 0.000" *) input fir_clk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.LEDS_OUT DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.LEDS_OUT, LAYERED_METADATA undef" *) output [7:0]leds_out;
 
   wire adc_clk_1;
@@ -155,7 +155,7 @@ module fir_design
 
   assign FCLK_CLK0 = processing_system7_0_FCLK_CLK0;
   assign FCLK_RESET0_N = processing_system7_0_FCLK_RESET0_N;
-  assign adc_clk_1 = adc_clk;
+  assign adc_clk_1 = fir_clk;
   assign adc_data_1 = adc_data[13:0];
   assign dac_data[13:0] = firN_IP_0_fir_out;
   assign leds_out[7:0] = firN_IP_0_leds_out;

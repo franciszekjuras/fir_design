@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Dec  2 17:50:06 2017" VIVADOVERSION="2017.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Apr 27 12:33:16 2018" VIVADOVERSION="2017.3">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z010" NAME="fir_design" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -45,7 +45,7 @@
         <CONNECTION INSTANCE="firN_IP_0" PORT="leds_out"/>
       </CONNECTIONS>
     </PORT>
-    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="adc_clk" SIGIS="clk" SIGNAME="External_Ports_adc_clk">
+    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="fir_clk" SIGIS="clk" SIGNAME="External_Ports_fir_clk">
       <CONNECTIONS>
         <CONNECTION INSTANCE="firN_IP_0" PORT="fir_clk"/>
       </CONNECTIONS>
@@ -914,16 +914,18 @@
         <PARAMETER NAME="C_S00_AXI_ADDR_WIDTH" VALUE="16"/>
         <PARAMETER NAME="FIR_DATA_WIDTH" VALUE="14"/>
         <PARAMETER NAME="FIR_COEF_WIDTH" VALUE="18"/>
-        <PARAMETER NAME="FIR_DSP_NR" VALUE="80"/>
+        <PARAMETER NAME="FIR_DSP_NR" VALUE="10"/>
+        <PARAMETER NAME="FIR_COEF_MAG" VALUE="16"/>
+        <PARAMETER NAME="FIR_TM" VALUE="2"/>
         <PARAMETER NAME="Component_Name" VALUE="fir_design_firN_IP_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
         <PARAMETER NAME="C_S00_AXI_BASEADDR" VALUE="0x43C00000"/>
         <PARAMETER NAME="C_S00_AXI_HIGHADDR" VALUE="0x43C0FFFF"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="fir_clk" SIGIS="clk" SIGNAME="External_Ports_adc_clk">
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="fir_clk" SIGIS="clk" SIGNAME="External_Ports_fir_clk">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="adc_clk"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="fir_clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="13" NAME="fir_in" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_adc_data">

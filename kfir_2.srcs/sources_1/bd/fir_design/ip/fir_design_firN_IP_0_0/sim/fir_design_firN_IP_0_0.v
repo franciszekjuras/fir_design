@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2017 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2018 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -48,7 +48,7 @@
 
 
 // IP VLNV: fj:user:firN_IP:1
-// IP Revision: 26
+// IP Revision: 33
 
 `timescale 1ns/1ps
 
@@ -81,7 +81,7 @@ module fir_design_firN_IP_0_0 (
   s00_axi_aresetn
 );
 
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME fir_clk, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN fir_design_adc_clk" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME fir_clk, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN fir_design_fir_clk" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 fir_clk CLK" *)
 input wire fir_clk;
 input wire [13 : 0] fir_in;
@@ -138,7 +138,9 @@ input wire s00_axi_aresetn;
     .C_S00_AXI_ADDR_WIDTH(16),  // Width of S_AXI address bus
     .FIR_DATA_WIDTH(14),
     .FIR_COEF_WIDTH(18),
-    .FIR_DSP_NR(80)
+    .FIR_DSP_NR(10),
+    .FIR_COEF_MAG(16),
+    .FIR_TM(2)
   ) inst (
     .fir_clk(fir_clk),
     .fir_in(fir_in),

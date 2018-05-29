@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.3 (lin64) Build 2018833 Wed Oct  4 19:58:07 MDT 2017
--- Date        : Thu Nov 30 19:40:21 2017
+-- Date        : Thu Nov 30 19:40:19 2017
 -- Host        : franciszek-ThinkPad running 64-bit Ubuntu 16.04.3 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/franciszek/Documents/fpga/firN/kfir_2.srcs/sources_1/bd/fir_design/ip/fir_design_rst_ps7_0_50M_1/fir_design_rst_ps7_0_50M_1_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top fir_design_rst_ps7_0_50M_1 -prefix
+--               fir_design_rst_ps7_0_50M_1_ fir_design_rst_ps7_0_50M_1_sim_netlist.vhdl
 -- Design      : fir_design_rst_ps7_0_50M_1
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -25,8 +25,6 @@ entity fir_design_rst_ps7_0_50M_1_cdc_sync is
     aux_reset_in : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of fir_design_rst_ps7_0_50M_1_cdc_sync : entity is "cdc_sync";
 end fir_design_rst_ps7_0_50M_1_cdc_sync;
 
 architecture STRUCTURE of fir_design_rst_ps7_0_50M_1_cdc_sync is
@@ -235,8 +233,6 @@ entity fir_design_rst_ps7_0_50M_1_upcnt_n is
     seq_cnt_en : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of fir_design_rst_ps7_0_50M_1_upcnt_n : entity is "upcnt_n";
 end fir_design_rst_ps7_0_50M_1_upcnt_n;
 
 architecture STRUCTURE of fir_design_rst_ps7_0_50M_1_upcnt_n is
@@ -401,8 +397,6 @@ entity fir_design_rst_ps7_0_50M_1_lpf is
     mb_debug_sys_rst : in STD_LOGIC;
     ext_reset_in : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of fir_design_rst_ps7_0_50M_1_lpf : entity is "lpf";
 end fir_design_rst_ps7_0_50M_1_lpf;
 
 architecture STRUCTURE of fir_design_rst_ps7_0_50M_1_lpf is
@@ -584,8 +578,6 @@ entity fir_design_rst_ps7_0_50M_1_sequence_psr is
     lpf_int : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of fir_design_rst_ps7_0_50M_1_sequence_psr : entity is "sequence_psr";
 end fir_design_rst_ps7_0_50M_1_sequence_psr;
 
 architecture STRUCTURE of fir_design_rst_ps7_0_50M_1_sequence_psr is
@@ -924,8 +916,6 @@ entity fir_design_rst_ps7_0_50M_1_proc_sys_reset is
   attribute C_NUM_PERP_ARESETN of fir_design_rst_ps7_0_50M_1_proc_sys_reset : entity is 1;
   attribute C_NUM_PERP_RST : integer;
   attribute C_NUM_PERP_RST of fir_design_rst_ps7_0_50M_1_proc_sys_reset : entity is 1;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of fir_design_rst_ps7_0_50M_1_proc_sys_reset : entity is "proc_sys_reset";
 end fir_design_rst_ps7_0_50M_1_proc_sys_reset;
 
 architecture STRUCTURE of fir_design_rst_ps7_0_50M_1_proc_sys_reset is

@@ -175,8 +175,13 @@ proc create_root_design { parentCell } {
   # Create instance: firN_IP_0, and set properties
   set firN_IP_0 [ create_bd_cell -type ip -vlnv fj:user:firN_IP:1 firN_IP_0 ]
   set_property -dict [ list \
-   CONFIG.FIR_COEF_MAG {16} \
-   CONFIG.FIR_DSP_NR {10} \
+   CONFIG.DWSAMP_DSP_NR {0} \
+   CONFIG.FIR_COEF_MAG {20} \
+   CONFIG.FIR_DSP_NR {60} \
+   CONFIG.OUTPUT_DATA_WIDTH {14} \
+   CONFIG.SRC_COEF_MAG {17} \
+   CONFIG.TM {64} \
+   CONFIG.UPSAMP_DSP_NR {20} \
  ] $firN_IP_0
 
   # Create instance: processing_system7_0, and set properties

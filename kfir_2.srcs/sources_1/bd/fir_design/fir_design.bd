@@ -795,8 +795,13 @@
         <spirit:componentRef spirit:library="user" spirit:name="firN_IP" spirit:vendor="fj" spirit:version="1"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">fir_design_firN_IP_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="FIR_DSP_NR">10</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="FIR_COEF_MAG">16</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="FIR_DSP_NR">60</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="TM">64</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="OUTPUT_DATA_WIDTH">14</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="SRC_COEF_MAG">17</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="FIR_COEF_MAG">20</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="DWSAMP_DSP_NR">0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="UPSAMP_DSP_NR">20</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
     </spirit:componentInstances>

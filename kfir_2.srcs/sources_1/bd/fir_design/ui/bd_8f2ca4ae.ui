@@ -11,22 +11,22 @@ preplace portBus leds_out -pg 1 -y 520 -defaultsOSRD
 preplace portBus dac_data -pg 1 -y 500 -defaultsOSRD
 preplace portBus adc_data -pg 1 -y 670 -defaultsOSRD
 preplace inst rst_ps7_0_50M -pg 1 -lvl 1 -y 580 -defaultsOSRD
-preplace inst firN_IP_0 -pg 1 -lvl 3 -y 510 -defaultsOSRD
+preplace inst firN_IP_0 -pg 1 -lvl 3 -y 700 -defaultsOSRD
 preplace inst axi_interconnect_0 -pg 1 -lvl 2 -y 330 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 3 -y 90 -defaultsOSRD
 preplace netloc processing_system7_0_DDR 1 3 1 NJ
-preplace netloc processing_system7_0_M_AXI_GP0 1 1 3 410 190 NJ 190 1120
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 4 20 160 NJ 160 720J 180 1130
-preplace netloc adc_data_1 1 0 3 10J 470 NJ 470 690J
-preplace netloc adc_clk_1 1 0 3 NJ 490 NJ 490 NJ
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 3 380 170 720J 180 1120
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 4 0 190 NJ 190 NJ 190 1130
+preplace netloc adc_data_1 1 0 3 NJ 670 NJ 670 690J
+preplace netloc adc_clk_1 1 0 3 NJ 490 NJ 490 700J
 preplace netloc rst_ps7_0_50M_interconnect_aresetn 1 1 1 390
-preplace netloc firN_IP_0_leds_out 1 3 1 NJ
+preplace netloc firN_IP_0_leds_out 1 3 1 1140J
 preplace netloc processing_system7_0_FIXED_IO 1 3 1 NJ
-preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 1 2 410 550 N
-preplace netloc axi_interconnect_0_M00_AXI 1 2 1 700
-preplace netloc firN_IP_0_fir_out 1 3 1 NJ
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 4 30 390 400 180 710 200 1140
-levelinfo -pg 1 -10 210 550 920 1160 -top 0 -bot 690
+preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 1 2 400 620 680
+preplace netloc axi_interconnect_0_M00_AXI 1 2 1 720
+preplace netloc firN_IP_0_fir_out 1 3 1 1120J
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 4 10 470 380 470 710 200 1140
+levelinfo -pg 1 -20 200 540 920 1160 -top 0 -bot 980
 ",
 }
 {

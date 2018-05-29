@@ -13,7 +13,6 @@ module rp_pll (
   output wire pll_locked
 );
 
-localparam UNDERSAMPL = 2;
 localparam SERIALMULT = 1;
 
 wire clk_fb;
@@ -29,15 +28,15 @@ PLLE2_ADV #(
    .CLKOUT0_PHASE        ( 0            ),
    .CLKOUT0_DUTY_CYCLE   ( 0.5          ),
    //DAC clock 1x
-   .CLKOUT1_DIVIDE       ( 8*UNDERSAMPL ),
+   .CLKOUT1_DIVIDE       ( 8),
    .CLKOUT1_PHASE        ( 0.000        ),
    .CLKOUT1_DUTY_CYCLE   ( 0.5          ),
    //DAC clock 2x
-   .CLKOUT2_DIVIDE       ( 4*UNDERSAMPL ),
+   .CLKOUT2_DIVIDE       ( 4 ),
    .CLKOUT2_PHASE        ( 0.000        ),
    .CLKOUT2_DUTY_CYCLE   ( 0.5          ),
    //DAC clock 2x phase shifted
-   .CLKOUT3_DIVIDE       ( 4*UNDERSAMPL ),
+   .CLKOUT3_DIVIDE       ( 4 ),
    .CLKOUT3_PHASE        (-45.000       ),
    .CLKOUT3_DUTY_CYCLE   ( 0.5          ),
    //serial clock for multiplication in DSP blocks

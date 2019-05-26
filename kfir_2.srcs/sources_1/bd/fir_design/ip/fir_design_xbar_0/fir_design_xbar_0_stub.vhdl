@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.3 (lin64) Build 2018833 Wed Oct  4 19:58:07 MDT 2017
--- Date        : Thu Nov 30 19:42:50 2017
--- Host        : franciszek-ThinkPad running 64-bit Ubuntu 16.04.3 LTS
--- Command     : write_vhdl -force -mode synth_stub -rename_top fir_design_xbar_0 -prefix
---               fir_design_xbar_0_ fir_design_xbar_0_stub.vhdl
+-- Date        : Thu Mar 21 12:29:45 2019
+-- Host        : fPad running 64-bit Ubuntu 16.04.6 LTS
+-- Command     : write_vhdl -force -mode synth_stub
+--               /home/franciszek/Documents/fpga/firN/kfir_2.srcs/sources_1/bd/fir_design/ip/fir_design_xbar_0/fir_design_xbar_0_stub.vhdl
 -- Design      : fir_design_xbar_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z010clg400-1

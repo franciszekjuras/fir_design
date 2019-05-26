@@ -1,8 +1,8 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.3 (lin64) Build 2018833 Wed Oct  4 19:58:07 MDT 2017
-//Date        : Tue May 29 23:21:01 2018
-//Host        : fPad running 64-bit Ubuntu 16.04.4 LTS
+//Date        : Sat May 25 11:31:25 2019
+//Host        : fPad running 64-bit Ubuntu 16.04.6 LTS
 //Command     : generate_target fir_design.bd
 //Design      : fir_design
 //Purpose     : IP block netlist
@@ -68,11 +68,11 @@ module fir_design
 
   wire adc_clk_1;
   wire [13:0]adc_data_1;
-  wire [15:0]axi_interconnect_0_M00_AXI_ARADDR;
+  wire [21:0]axi_interconnect_0_M00_AXI_ARADDR;
   wire [2:0]axi_interconnect_0_M00_AXI_ARPROT;
   wire axi_interconnect_0_M00_AXI_ARREADY;
   wire axi_interconnect_0_M00_AXI_ARVALID;
-  wire [15:0]axi_interconnect_0_M00_AXI_AWADDR;
+  wire [21:0]axi_interconnect_0_M00_AXI_AWADDR;
   wire [2:0]axi_interconnect_0_M00_AXI_AWPROT;
   wire axi_interconnect_0_M00_AXI_AWREADY;
   wire axi_interconnect_0_M00_AXI_AWVALID;
@@ -444,11 +444,11 @@ module fir_design_axi_interconnect_0_1
   input ARESETN;
   input M00_ACLK;
   input M00_ARESETN;
-  output [15:0]M00_AXI_araddr;
+  output [21:0]M00_AXI_araddr;
   output [2:0]M00_AXI_arprot;
   input M00_AXI_arready;
   output M00_AXI_arvalid;
-  output [15:0]M00_AXI_awaddr;
+  output [21:0]M00_AXI_awaddr;
   output [2:0]M00_AXI_awprot;
   input M00_AXI_awready;
   output M00_AXI_awvalid;
@@ -591,11 +591,11 @@ module fir_design_axi_interconnect_0_1
   wire axi_interconnect_0_to_s00_couplers_WREADY;
   wire [3:0]axi_interconnect_0_to_s00_couplers_WSTRB;
   wire axi_interconnect_0_to_s00_couplers_WVALID;
-  wire [15:0]m00_couplers_to_axi_interconnect_0_ARADDR;
+  wire [21:0]m00_couplers_to_axi_interconnect_0_ARADDR;
   wire [2:0]m00_couplers_to_axi_interconnect_0_ARPROT;
   wire m00_couplers_to_axi_interconnect_0_ARREADY;
   wire m00_couplers_to_axi_interconnect_0_ARVALID;
-  wire [15:0]m00_couplers_to_axi_interconnect_0_AWADDR;
+  wire [21:0]m00_couplers_to_axi_interconnect_0_AWADDR;
   wire [2:0]m00_couplers_to_axi_interconnect_0_AWPROT;
   wire m00_couplers_to_axi_interconnect_0_AWREADY;
   wire m00_couplers_to_axi_interconnect_0_AWVALID;
@@ -767,10 +767,10 @@ module fir_design_axi_interconnect_0_1
 
   assign M00_ACLK_1 = M00_ACLK;
   assign M00_ARESETN_1 = M00_ARESETN;
-  assign M00_AXI_araddr[15:0] = m00_couplers_to_axi_interconnect_0_ARADDR;
+  assign M00_AXI_araddr[21:0] = m00_couplers_to_axi_interconnect_0_ARADDR;
   assign M00_AXI_arprot[2:0] = m00_couplers_to_axi_interconnect_0_ARPROT;
   assign M00_AXI_arvalid = m00_couplers_to_axi_interconnect_0_ARVALID;
-  assign M00_AXI_awaddr[15:0] = m00_couplers_to_axi_interconnect_0_AWADDR;
+  assign M00_AXI_awaddr[21:0] = m00_couplers_to_axi_interconnect_0_AWADDR;
   assign M00_AXI_awprot[2:0] = m00_couplers_to_axi_interconnect_0_AWPROT;
   assign M00_AXI_awvalid = m00_couplers_to_axi_interconnect_0_AWVALID;
   assign M00_AXI_bready = m00_couplers_to_axi_interconnect_0_BREADY;
@@ -1241,11 +1241,11 @@ module m00_couplers_imp_1MU14C2
     S_AXI_wvalid);
   input M_ACLK;
   input M_ARESETN;
-  output [15:0]M_AXI_araddr;
+  output [21:0]M_AXI_araddr;
   output [2:0]M_AXI_arprot;
   input M_AXI_arready;
   output M_AXI_arvalid;
-  output [15:0]M_AXI_awaddr;
+  output [21:0]M_AXI_awaddr;
   output [2:0]M_AXI_awprot;
   input M_AXI_awready;
   output M_AXI_awvalid;
@@ -1304,11 +1304,11 @@ module m00_couplers_imp_1MU14C2
 
   wire S_ACLK_1;
   wire S_ARESETN_1;
-  wire [15:0]auto_pc_to_m00_couplers_ARADDR;
+  wire [21:0]auto_pc_to_m00_couplers_ARADDR;
   wire [2:0]auto_pc_to_m00_couplers_ARPROT;
   wire auto_pc_to_m00_couplers_ARREADY;
   wire auto_pc_to_m00_couplers_ARVALID;
-  wire [15:0]auto_pc_to_m00_couplers_AWADDR;
+  wire [21:0]auto_pc_to_m00_couplers_AWADDR;
   wire [2:0]auto_pc_to_m00_couplers_AWPROT;
   wire auto_pc_to_m00_couplers_AWREADY;
   wire auto_pc_to_m00_couplers_AWVALID;
@@ -1363,10 +1363,10 @@ module m00_couplers_imp_1MU14C2
   wire [3:0]m00_couplers_to_auto_pc_WSTRB;
   wire m00_couplers_to_auto_pc_WVALID;
 
-  assign M_AXI_araddr[15:0] = auto_pc_to_m00_couplers_ARADDR;
+  assign M_AXI_araddr[21:0] = auto_pc_to_m00_couplers_ARADDR;
   assign M_AXI_arprot[2:0] = auto_pc_to_m00_couplers_ARPROT;
   assign M_AXI_arvalid = auto_pc_to_m00_couplers_ARVALID;
-  assign M_AXI_awaddr[15:0] = auto_pc_to_m00_couplers_AWADDR;
+  assign M_AXI_awaddr[21:0] = auto_pc_to_m00_couplers_AWADDR;
   assign M_AXI_awprot[2:0] = auto_pc_to_m00_couplers_AWPROT;
   assign M_AXI_awvalid = auto_pc_to_m00_couplers_AWVALID;
   assign M_AXI_bready = auto_pc_to_m00_couplers_BREADY;
@@ -1445,7 +1445,7 @@ module m00_couplers_imp_1MU14C2
         .m_axi_wready(auto_pc_to_m00_couplers_WREADY),
         .m_axi_wstrb(auto_pc_to_m00_couplers_WSTRB),
         .m_axi_wvalid(auto_pc_to_m00_couplers_WVALID),
-        .s_axi_araddr(m00_couplers_to_auto_pc_ARADDR[15:0]),
+        .s_axi_araddr(m00_couplers_to_auto_pc_ARADDR[21:0]),
         .s_axi_arburst(m00_couplers_to_auto_pc_ARBURST),
         .s_axi_arcache(m00_couplers_to_auto_pc_ARCACHE),
         .s_axi_arid(m00_couplers_to_auto_pc_ARID),
@@ -1457,7 +1457,7 @@ module m00_couplers_imp_1MU14C2
         .s_axi_arregion(m00_couplers_to_auto_pc_ARREGION),
         .s_axi_arsize(m00_couplers_to_auto_pc_ARSIZE),
         .s_axi_arvalid(m00_couplers_to_auto_pc_ARVALID),
-        .s_axi_awaddr(m00_couplers_to_auto_pc_AWADDR[15:0]),
+        .s_axi_awaddr(m00_couplers_to_auto_pc_AWADDR[21:0]),
         .s_axi_awburst(m00_couplers_to_auto_pc_AWBURST),
         .s_axi_awcache(m00_couplers_to_auto_pc_AWCACHE),
         .s_axi_awid(m00_couplers_to_auto_pc_AWID),

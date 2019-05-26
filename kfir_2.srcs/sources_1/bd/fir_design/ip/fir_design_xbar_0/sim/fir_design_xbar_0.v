@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2017 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2019 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -305,7 +305,7 @@ output wire [1 : 0] m_axi_rready;
     .C_AXI_PROTOCOL(0),
     .C_NUM_ADDR_RANGES(1),
     .C_M_AXI_BASE_ADDR(128'Hffffffffffffffff0000000043c00000),
-    .C_M_AXI_ADDR_WIDTH(64'H0000000000000010),
+    .C_M_AXI_ADDR_WIDTH(64'H0000000000000016),
     .C_S_AXI_BASE_ID(32'H00000000),
     .C_S_AXI_THREAD_ID_WIDTH(32'H0000000c),
     .C_AXI_SUPPORTS_USER_SIGNALS(0),

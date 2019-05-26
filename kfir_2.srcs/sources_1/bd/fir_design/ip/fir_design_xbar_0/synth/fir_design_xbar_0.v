@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2017 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2019 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "axi_crossbar_v2_1_15_axi_crossbar,Vivado 2017.3" *)
 (* CHECK_LICENSE_TYPE = "fir_design_xbar_0,axi_crossbar_v2_1_15_axi_crossbar,{}" *)
-(* CORE_GENERATION_INFO = "fir_design_xbar_0,axi_crossbar_v2_1_15_axi_crossbar,{x_ipProduct=Vivado 2017.3,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_crossbar,x_ipVersion=2.1,x_ipCoreRevision=15,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_FAMILY=zynq,C_NUM_SLAVE_SLOTS=1,C_NUM_MASTER_SLOTS=2,C_AXI_ID_WIDTH=12,C_AXI_ADDR_WIDTH=32,C_AXI_DATA_WIDTH=32,C_AXI_PROTOCOL=0,C_NUM_ADDR_RANGES=1,C_M_AXI_BASE_ADDR=0xffffffffffffffff0000000043c00000,C_M_AXI_ADDR_WIDTH=0x0000000000000010,C_S_AXI_BASE_ID=0x00000000,C_S_AXI_THREAD_\
+(* CORE_GENERATION_INFO = "fir_design_xbar_0,axi_crossbar_v2_1_15_axi_crossbar,{x_ipProduct=Vivado 2017.3,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_crossbar,x_ipVersion=2.1,x_ipCoreRevision=15,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_FAMILY=zynq,C_NUM_SLAVE_SLOTS=1,C_NUM_MASTER_SLOTS=2,C_AXI_ID_WIDTH=12,C_AXI_ADDR_WIDTH=32,C_AXI_DATA_WIDTH=32,C_AXI_PROTOCOL=0,C_NUM_ADDR_RANGES=1,C_M_AXI_BASE_ADDR=0xffffffffffffffff0000000043c00000,C_M_AXI_ADDR_WIDTH=0x0000000000000016,C_S_AXI_BASE_ID=0x00000000,C_S_AXI_THREAD_\
 ID_WIDTH=0x0000000c,C_AXI_SUPPORTS_USER_SIGNALS=0,C_AXI_AWUSER_WIDTH=1,C_AXI_ARUSER_WIDTH=1,C_AXI_WUSER_WIDTH=1,C_AXI_RUSER_WIDTH=1,C_AXI_BUSER_WIDTH=1,C_M_AXI_WRITE_CONNECTIVITY=0xFFFFFFFFFFFFFFFF,C_M_AXI_READ_CONNECTIVITY=0xFFFFFFFFFFFFFFFF,C_R_REGISTER=0,C_S_AXI_SINGLE_THREAD=0x00000000,C_S_AXI_WRITE_ACCEPTANCE=0x00000008,C_S_AXI_READ_ACCEPTANCE=0x00000008,C_M_AXI_WRITE_ISSUING=0x0000000800000008,C_M_AXI_READ_ISSUING=0x0000000800000008,C_S_AXI_ARB_PRIORITY=0x00000000,C_M_AXI_SECURE=0x00000000\
 ,C_CONNECTIVITY_MODE=1}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
@@ -308,7 +308,7 @@ output wire [1 : 0] m_axi_rready;
     .C_AXI_PROTOCOL(0),
     .C_NUM_ADDR_RANGES(1),
     .C_M_AXI_BASE_ADDR(128'Hffffffffffffffff0000000043c00000),
-    .C_M_AXI_ADDR_WIDTH(64'H0000000000000010),
+    .C_M_AXI_ADDR_WIDTH(64'H0000000000000016),
     .C_S_AXI_BASE_ID(32'H00000000),
     .C_S_AXI_THREAD_ID_WIDTH(32'H0000000c),
     .C_AXI_SUPPORTS_USER_SIGNALS(0),

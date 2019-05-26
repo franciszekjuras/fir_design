@@ -175,13 +175,13 @@ proc create_root_design { parentCell } {
   # Create instance: firN_IP_0, and set properties
   set firN_IP_0 [ create_bd_cell -type ip -vlnv fj:user:firN_IP:1 firN_IP_0 ]
   set_property -dict [ list \
-   CONFIG.DWSAMP_DSP_NR {0} \
-   CONFIG.FIR_COEF_MAG {20} \
-   CONFIG.FIR_DSP_NR {60} \
+   CONFIG.C_S00_AXI_ADDR_WIDTH {22} \
+   CONFIG.FIR_COEF_MAG {24} \
+   CONFIG.FIR_DSP_NR {39} \
    CONFIG.OUTPUT_DATA_WIDTH {14} \
-   CONFIG.SRC_COEF_MAG {17} \
-   CONFIG.TM {64} \
-   CONFIG.UPSAMP_DSP_NR {20} \
+   CONFIG.SRC_COEF_MAG {24} \
+   CONFIG.SRC_DSP_NR {20} \
+   CONFIG.TM {100} \
  ] $firN_IP_0
 
   # Create instance: processing_system7_0, and set properties
@@ -771,7 +771,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net rst_ps7_0_50M_peripheral_aresetn [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/M01_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins firN_IP_0/s00_axi_aresetn] [get_bd_pins rst_ps7_0_50M/peripheral_aresetn]
 
   # Create address segments
-  create_bd_addr_seg -range 0x00010000 -offset 0x43C00000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs firN_IP_0/S00_AXI/S00_AXI_reg] SEG_firN_IP_0_S00_AXI_reg
+  create_bd_addr_seg -range 0x00400000 -offset 0x43C00000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs firN_IP_0/S00_AXI/S00_AXI_reg] SEG_firN_IP_0_S00_AXI_reg
 
 
   # Restore current instance

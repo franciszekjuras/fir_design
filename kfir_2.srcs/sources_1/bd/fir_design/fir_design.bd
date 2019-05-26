@@ -795,13 +795,12 @@
         <spirit:componentRef spirit:library="user" spirit:name="firN_IP" spirit:vendor="fj" spirit:version="1"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">fir_design_firN_IP_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="FIR_DSP_NR">60</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="TM">64</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="FIR_DSP_NR">39</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="TM">100</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="OUTPUT_DATA_WIDTH">14</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="SRC_COEF_MAG">17</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="FIR_COEF_MAG">20</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="DWSAMP_DSP_NR">0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="UPSAMP_DSP_NR">20</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="SRC_COEF_MAG">24</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="FIR_COEF_MAG">24</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="SRC_DSP_NR">20</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
     </spirit:componentInstances>
@@ -824,11 +823,11 @@
         <spirit:externalPortReference spirit:portRef="FCLK_CLK0"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="M_AXI_GP0_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="rst_ps7_0_50M" spirit:portRef="slowest_sync_clk"/>
+        <spirit:internalPortReference spirit:componentRef="firN_IP_0" spirit:portRef="s00_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="ACLK"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="S00_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="M00_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="M01_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="firN_IP_0" spirit:portRef="s00_axi_aclk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>processing_system7_0_FCLK_RESET0_N</spirit:name>
@@ -844,10 +843,10 @@
       <spirit:adHocConnection>
         <spirit:name>rst_ps7_0_50M_peripheral_aresetn</spirit:name>
         <spirit:internalPortReference spirit:componentRef="rst_ps7_0_50M" spirit:portRef="peripheral_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="firN_IP_0" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="S00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="M00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="axi_interconnect_0" spirit:portRef="M01_ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="firN_IP_0" spirit:portRef="s00_axi_aresetn"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>firN_IP_0_fir_out</spirit:name>
@@ -1910,7 +1909,7 @@
             <spirit:name>SEG_firN_IP_0_S00_AXI_reg</spirit:name>
             <spirit:displayName>/firN_IP_0/S00_AXI/S00_AXI_reg</spirit:displayName>
             <spirit:addressOffset>0x43C00000</spirit:addressOffset>
-            <spirit:range>64K</spirit:range>
+            <spirit:range>4M</spirit:range>
           </spirit:segment>
         </spirit:segments>
       </spirit:addressSpace>
